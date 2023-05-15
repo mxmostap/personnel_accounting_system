@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="/static/libs/bootstrap-reboot.min.css">
+
+    <!-- Bootstrap сетка -->
+    <link rel="stylesheet" href="/static/libs/bootstrap-grid.min.css">
+
+    <!-- Шрифты с Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+
+    <!-- Стили сайта -->
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <a href="{% url 'home' %}" class="navbar-brand">Система учета персонала</a>
+        <div class="navbar-wrap">
+            <ul class="navbar-menu">
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Сотрудники</a></li>
+                <li><a href="#">ЗП</a></li>
+            </ul>
+            {% if user.is_authenticated %}
+                <div class="logging">
+                    <a href="{% url 'logout' %}" id="logging">Выход</a>
+                </div>
+            {% else %}
+                <div>dfdfdfdf</div>
+                <div class="logging">
+                    <a href="{% url 'authorization' %}" id="logging" class="authorization">Авторизация</a>
+                    <a href="{% url 'registration' %}" id="logging" class="registration">Регистрация</a>
+                </div>
+            {% endif %}
+
+            <div class="language_switcher_placeholder">
+                <i class="fas fa-language"></i>
+            </div>
+        </div>
+    </div>
+
+</nav>
+</body>
+</html>
