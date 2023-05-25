@@ -38,16 +38,15 @@
                     <a href="{% url 'logout' %}" id="logging">Выход</a>
                 </div>
             {% else %}
-                <div>dfdfdfdf</div>
                 <div class="logging">
-                    <a href="{% url 'authorization' %}" id="logging" class="authorization">Авторизация</a>
+                    <a href="{% url 'login' %}" id="logging" class="authorization">Авторизация</a>
                     <a href="{% url 'registration' %}" id="logging" class="registration">Регистрация</a>
                 </div>
             {% endif %}
 
-            <div class="language_switcher_placeholder">
-                <i class="fas fa-language"></i>
-            </div>
+{#            <div class="language_switcher_placeholder">#}
+{#                <i class="fas fa-language"></i>#}
+{#            </div>#}
         </div>
     </div>
 

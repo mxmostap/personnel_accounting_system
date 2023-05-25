@@ -1,0 +1,33 @@
+{% extends 'staff/home.html' %}
+
+{% block content %}
+    {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <form action="{% url 'login' %}" method="post">
+        <div class="container w-25 ">
+            <div class="col">
+                <div class="row">
+                    {% csrf_token %}
+                    {% for f in form %}
+                        <label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>
+                        {{ f }}
+                    {% endfor %}
+                    {{ f.errors }}
+                    <button class="mt-4 ml-5 btn btn-primary w-100" type="submit">Войти</button>
+{#                    <div class="mt-3 d-flex justify-content-center align-items-center h-100px">#}
+{#                        <a href="{% url 'password_reset' %}"#}
+{#                           class="text-center link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Забыли#}
+{#                            пароль?</a>#}
+{#                    </div>#}
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+{% endblock %}
